@@ -1,0 +1,103 @@
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{dokumentation}[08/01/2022, v1.0]
+
+% Kodierung
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+
+% Mathe
+\usepackage{amsmath, amsfonts, mathtools}
+
+% Deutsche Silbentrennung, Sonderzeichen und Anführungszeichen
+\usepackage[ngerman]{babel}
+\usepackage[german]{csquotes}
+
+%Farbe
+%\PassOptionsToPackage{table}{xcolor}
+
+\usepackage{tabularx}
+
+\usepackage[table]{xcolor}
+
+
+% keine Seitenränder und 1.5 facher Zeilenabstand
+\setlength{\marginparsep}{0pt}
+\setlength{\marginparwidth}{0pt}
+\usepackage[onehalfspacing, nodisplayskipstretch]{setspace}
+
+% verbesserte Typographie auf Buchstabenebene
+% TODO: wenn dies nicht gewünscht ist, kann die folgende Zeile einfach entfernt werden; optisch ist es mMn. ansprechender und kann für weniger "overfull hbox" und "underfull vbox" Probleme sorgen
+\usepackage[tracking, kerning, spacing, babel]{microtype} % nutze alle Features mit Standardeinstellungen, auf Deutsch abgestimmt
+
+% Grafiken
+\usepackage{graphicx}
+\graphicspath{{images/}}
+% TODO: benötigt inkscape im Pfad und PdfLaTeX muss mit --shell-escape verwendet werden (siehe auch Dokumentation unter https://www.ctan.org/pkg/svg)
+%       alternativ kann die svg händisch in eine PDF exportiert werden und mit \includegraphics eingebunden werden
+
+% Tabellen
+%\usepackage{booktabs}
+%\usepackage{threeparttable} % TODO: nur notwendig wenn "Fußnote" in Tabelle eingefügt werden soll (siehe Beispieltabelle)
+%\usepackage{multirow} % TODO: kann entfernt werden, falls nicht explizit per \multirow genutzt
+% Format für eine ganze Zeile verändern können (siehe Beispieltabelle)
+\usepackage{array}
+%\newcolumntype{^}{>{\global\let\currentrowstyle\relax}}
+%\newcolumntype{+}{>{\currentrowstyle}}
+%\newcommand{\rowstyle}[1]{\gdef\currentrowstyle{#1}%
+%#1\ignorespaces%
+%}
+\usepackage{enumitem}
+
+% Bild- und Tabellenunterschriften
+\usepackage[
+    format=plain, % grundlegendes Format
+    labelfont=bf % fettgedrucktes Label
+]{caption}
+
+% Header und Footer
+\usepackage[headsepline, automark]{scrlayer-scrpage}
+\pagestyle{scrheadings}
+\clearpairofpagestyles % alle Kopf- und Fußzeilenfelder bereinigen
+\ohead{\headmark} % running header auf äußerer Seite
+\ofoot*{\pagemark} % Seitenzahl auf äußerer Fußzeile; durch * auch für pagestyle plain
+
+% SI-Einheiten
+
+% Erzeugung PDF-Dokument und Hyperlinks
+\PassOptionsToPackage{hyphens}{url}
+\usepackage[
+    pdftitle={\titleDocument},
+    pdfauthor={\authorDocument},
+    pdfsubject={\subjectDocument},
+    pdflang={de-DE},
+    hidelinks, % Links nicht einrahmen
+    breaklinks=true,
+% TODO: die restlichen Konfigurationen sind persönlicher Geschmack und abhängig vom Dokumentlayout (einseitig vs. zweiseitig etc.)
+    pdfdisplaydoctitle, % Titel statt Dokumentname in Titelleiste
+    pdfduplex=Simplex, % beidseitig drucken mit Spiegelung an langer Kante
+    pdfpagelayout=OneColumn, % Bildlauf in Zweiseitenansicht mit Titelblatt rechts
+    hypertexnames=false
+]{hyperref}
+% "Abschnitt" statt "Unterabschnitt" für autoref auf eine subsection
+% TODO: dies ist persönlicher Geschmack
+\addto\extrasngerman{\def\subsectionautorefname{\sectionautorefname}}
+
+% allgemeine Kommandos
+\newcommand{\zB}{z.\,B.} % Abkürzung von "zum Beispiel"
+\newcommand{\ZB}{Z.\,B.} % Abkürzung von "zum Beispiel"
+\newcommand{\ie}{d.\,h.} % Abkürzung von "das heißt" (\dh ist bereits belegt)
+\newcommand{\Ie}{ D.\,h. } % Abkürzung von "das heißt" (\dh ist bereits belegt)
+\newcommand{\ua}{u.\,a.} % Abkürzung von "unter anderem"
+\renewcommand{\autodot}{} % Entfernt Punkte hinter Nummerierung (Tabelle, Überschrift)
+%\hypersetup{breaklinks=true}
+\usepackage{pdfpages}
+\usepackage{color}
+\usepackage{listings}
+
+\definecolor{background}{HTML}{dbdbdb}
+\lstset{basicstyle=\linespread{0.8},
+    backgroundcolor = \color{background!50},
+    numbers=left,
+    stepnumber=1,
+    breaklines=true}

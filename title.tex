@@ -1,0 +1,57 @@
+\begin{titlepage}
+	% TODO: wird das geometry Paket genutzt statt der Mechanismen aus KOMA-Skript, kann die folgende Zeile z.B. durch "\newgeometry{...}" ersetzt werden
+	\typearea{100} % DVI auf 100 setzen für Titel (kleine Margins)
+	\setlength{\parindent}{0pt} % keine Einrückung bei neuen Absätzen auf dieser Seite
+
+	\begin{flushright}
+		\includegraphics[height=5cm]{images/FH-Aachen-r_svg-raw}
+	\end{flushright}
+	
+	\vspace*{-2.5cm}
+
+	\begin{center}
+		\textbf{\Huge Fachhochschule~Aachen}
+
+		\vspace*{0.5cm}
+		
+		\textbf{\Huge Studienort Köln}
+
+		\vspace*{0.75cm}
+
+		{\normalsize\doublespacing Fachbereich~9:~Medizintechnik~und~Technomathematik\\	Studiengang:~Angewandte~Mathematik~und~Informatik}
+
+		\vspace*{2.5cm} % TODO: bei mehr verwendeten Zeilen für den Titel verringern
+		
+		\begin{minipage}[t]{14cm} % TODO: abhängig von dem konkreten Titel muss diese Breite eventuell angepasst werden für einen passenden Zeilenumbruch
+			\begin{center}
+				\textbf{\Huge \titleDocument}
+			\end{center}
+		\end{minipage}
+	
+		\vspace*{2.5cm} % TODO: bei mehr verwendeten Zeilen für den Titel verringern (symmetrisch zu oben)
+		
+		\textbf{\Large \subjectDocument}
+
+		\vspace*{0.5cm}
+		
+		{\normalsize von}
+		
+		\vspace*{0.5cm}
+		
+		\textbf{\Large \authorDocument}
+	
+		\vspace*{3.5cm}
+		
+		\begin{minipage}[t]{13cm}
+			\begin{center}
+				\begin{tabular}{llll}
+					Matrikelnummern: & 3237534 \\
+				\end{tabular}
+			\end{center}
+		\end{minipage}
+		
+		\vspace*{2.5cm}
+	
+		{\large \locationDocument, den \dateDocument}
+	\end{center}
+\end{titlepage}
