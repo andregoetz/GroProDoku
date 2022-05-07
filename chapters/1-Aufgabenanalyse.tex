@@ -2,21 +2,11 @@
 
 
 \section{Interpretation der Aufgabe}\label{sec:interpretation-der-aufgabe}
-Gefordert ist ein Programm, welches ein Gebiet übergeben bekommt und für dieses eine 100\%-Abdeckung von Funk mit möglichst wenigen Antennen errechnet.\\
-Ein Gebiet hat dabei Höhenunterschiede und wird in 100mx100m Quadrate eingeteilt, wobei die Eckpunkte beziehungsweise deren Höhe in 100 m übergeben wird.
-Die Höhe muss minimal 0 und maximal 6 betragen, die 6 steht hierbei für 600 m.
-Eine Antenne ist 10 m hoch und kann auf Eckpunkten platziert werden.
-Sie kann nicht durch Flächen hindurch senden, ist aber in ihrer Reichweite sonst unbegrenzt.
-Gesucht wird die minimale Anzahl an Antennen und deren Position, um das gesamte Gebiet auszuleuchten.
-Die Eingabe soll über Dateien erfolgen, welche die Größe eines Gebiets und dessen Höhenmeter, an den Eckpunkten der einzelnen Quadrate, enthalten muss und Kommentarzeilen enthalten kann.
-Dabei werden nur Zahlen aus den natürlichen Zahlen $\mathbb{N}_0$ akzeptiert und unvollständige Eingaben zeilenweise mit dem letzten vorhanden Wert korrigiert beziehungsweise vervollständigt.
-Für die Ausgabe ist zum einen die Ausgabe auf dem Bildschirm, in einer Datei und auch in einer Datei für Gnuplot zu berücksichtigen.
-Sie soll die Beschreibung der Eingabe enthalten, die Größe des Gebiets in X und Y, die Anzahl der Antennen und deren Position.
-Für Gnucobol zu erstellen sind die Dateien zur Definition, die Daten des Gebiets und für jede Antenne im jeweiligen Format.\\
+Gefordert ist ein Programm, welches TODO\\ %TODO
 
-Als Datenstruktur wird ein zwei-dimensionaler Float-Array genutzt, um einheitliche Rechenoperationen mit der 0.1 · 100 m hohen Antenne zu gewährleisten.
+Als Datenstruktur wird .\\%%TODO
 Bevorzugt wird float, da 32-Bit mehr als ausreichend für Rechenoperationen mit Zahlen von bis zu 6.1.
-Zudem kann durch Hardwarebeschleunigung, oder auch ohne, eine kürzere Laufzeit erreicht werden, im Gegensatz zu Double-Operationen.\\
+Zudem kann durch Hardwarebeschleunigung, oder auch ohne, eine kürzere Laufzeit erreicht werden, im Gegensatz zu Double-Operationen.\\ %TODO
 
 Die Eingabedatei wird zeilenweise eingelesen.
 Beginnt eine Zeile mit einem Semicolon, wird diese als Kommentar beziehungsweise als Beschreibung interpretiert.
@@ -24,19 +14,13 @@ Beginnt eine Zeile mit einem Semicolon, wird diese als Kommentar beziehungsweise
     \centering
     \caption{Input-Restriktionen}
     \begin{itemize}[noitemsep]
-        \item Eine Beschreibung sowie Kommentare sind optional.
-        \item Die erste Nicht-Kommentar-Zeile muss die Größen des Gebiets enthalten.
-        \item Die darauffolgenden Nicht-Kommentar-Zeilen müssen die Höhenangaben beinhalten.
-        \item Nach einer Leerzeile dürfen keine anderen Zeilen, abgesehen von Kommentarzeilen, stehen.
-        \item Pro Datei kann nur ein Gebiet eingelesen werden.
+        \item Restriktion 1.
     \end{itemize}
     \label{fig:input-restrictions}
 \end{figure}
 
-Die Lösung des Problems wird mittels Brute-Force realisiert.
-Es wird zuerst iterativ auf jeder möglichen Position nacheinander eine Antenne platziert und die Antenne ausgewählt, welche am meisten Felder abgedeckt hat.
-Sind noch nicht alle Felder ausgeleuchtet, wird so lange wieder so vorgegangen, bis keine Felder mehr ohne Netzabdeckung existieren.
-Es wird demnach in jedem Schritt greedy die beste Antenne gewählt.
+Die Lösung des Problems wird mittels TODO realisiert. %TODO
+TODO Beschreibe Algorithmus %TODO
 
 
 \section{Fehlerarten}\label{sec:fehlerarten}
@@ -44,11 +28,11 @@ Die Eingabedatei kann verschiedene Integritätsbedingungen verletzen.
 Das Programm muss diese Fehlerarten identifizieren und den Nutzer darüber informieren.
 
 \subsection{Technische Fehler}\label{subsec:technische-fehler}
-Wenn eine, vom Anwender ausgewählte, Datei nicht gefunden wird, bekommt er dies über eine FileNotFoundException von der Anwendung mitgeteilt.
+%TODO
 
 \subsection{Syntaktische Fehler}\label{subsec:syntaktische-fehler}
 Die Eingabedatei muss der Struktur aus~\nameref{fig:input-restrictions} entsprechen.
-So kann zum Beispiel ein syntaktischer Fehler provoziert werden, indem die Höhendefinitionen vor der Gebietsgröße geschrieben werden.
+So kann zum Beispiel ein syntaktischer Fehler provoziert werden, indem TODO%TODO
 
 \subsection{Semantische Fehler}\label{subsec:semantische-fehler}
 
