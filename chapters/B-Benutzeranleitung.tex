@@ -4,10 +4,38 @@
 \section{Vorbereiten des Systems}\label{sec:vorbereiten-des-systems}
 
 \subsection{Systemvoraussetzungen}\label{subsec:systemvoraussetzungen}
-
+Um sicherzustellen, dass das Programm lauffähig ist, sollte~\Betriebssystem~als Betriebssystem genutzt werden.
+Es ist außerdem eine JRE oder JDK in der Version 17 oder höher vonnöten, um das Programm auszuführen.\\
+Falls eine erneute Kompilierung des Programms gewünscht ist, empfiehlt es sich die JDK anstelle der JRE zu installieren.
+Um diese JRE/JDK anschließend zu nutzen, muss das bin-Verzeichnis dieser in die PATH-Umgebungsvariable hinzugefügt werden.
 \subsection{Installation}\label{subsec:installation}
-
+Es ist keine Installation nötig, es reicht das~.zip-Verzeichnis zu entpacken.
 
 \section{Programmaufruf}\label{sec:programmaufruf}
-
+Nach dem Entpacken kann das Programm über den Befehl
+\begin{center}
+    \colorbox{gray!20}{
+        \begin{minipage}{0.9\textwidth}
+            java -jar GroPro-1.0.jar "Testbeispiele/Test1IHK.txt"
+        \end{minipage}
+    }
+\end{center}
+in der Eingabeaufforderung (CMD) oder beliebiger Bash ausgeführt werden.
 \section{Testen der Beispiele}\label{sec:testen-der-beispiele}
+Das Ausführen der automatischen Tests erfolgt über die Datei \enquote{RunTestBeispiele.cmd}.
+In der Konsole wird nun das Programm für jede Datei im Ordner \enquote{Testbeispiele} ausgeführt.
+Alle Dateiausgaben befinden sich im Anschluss im Ordner \enquote{Testbeispiele/out}.
+
+\section{Kompilieren}\label{sec:kompilieren}
+Zum Erzeugen der~.jar-Datei sollte Maven genutzt werden.
+Der Einfachheit halber muss das bin-Verzeichnis der Maveninstallation ebenfalls in der PATH-Umgebungsvariable aufgenommen werden.
+Anschließend lässt sich das Programm kompilieren, indem der Befehl
+\begin{center}
+    \colorbox{gray!20}{
+        \begin{minipage}{0.9\textwidth}
+            mvn package
+        \end{minipage}
+    }
+\end{center}
+im Root-Verzeichnis des Quellcodes (das ist der Ordner, indem sich die \enquote{pom.xml} befindet) ausgeführt wird.
+Eine JAR-Datei befindet sich dann im Ordner \enquote{target}.

@@ -6,8 +6,21 @@
     DIV=10 % Division (Anzahl Spalten/Zeilen pro Seite, bestimmt implizit Margins)
 ]{scrreprt}
 
-\newcommand{\titleDocument}{Dokumentation der Praktischen Arbeit zur Prüfung zum Mathematisch-technischen Softwareentwickler}
-\newcommand{\authorDocument}{Leonhard Keßler}
+\newcommand{\ArbeitTitelseite}{Dokumentation der Praktischen Arbeit\ zur Prüfung zum\ Mathematisch-technischen Softwareentwickler}
+\newcommand{\titleDocument}{\ArbeitTitelseite}
+
+\newcommand{\Autor}{Leonhard Aaron Keßler}
+\newcommand{\authorDocument}{\Autor}
+
+\newcommand{\ArbeitKopfzeile}{Dokumentation der Praktischen Arbeit 2022}
+\newcommand{\ArbeitThema}{Bestimmung der Minimalanzahl von Antennen}
+\newcommand{\Pruefungsnummer}{TODO}
+\newcommand{\Programmiersprache}{Java}
+\newcommand{\Compiler}{Maven}
+\newcommand{\Rechner}{Dell Precision 7520}
+\newcommand{\CPU}{Intel(R) Core(TM) i7-6920HQ CPU @ 2.90GHz}
+\newcommand{\Betriebssystem}{Microsoft Windows 10 64-Bit}
+
 \newcommand{\subjectDocument}{Großprogrammierung}
 \newcommand{\locationDocument}{Köln}
 \newcommand{\dateDocument}{\today}
@@ -24,16 +37,18 @@
     % ============ Anfang =============
     % Titelseite
     \include{title}
-
-    \tableofcontents
+    \begingroup
+        \hypersetup{hidelinks}
+        \tableofcontents
+    \endgroup
 
     % =========== Zahlenteil ===========
     \include{chapters/1-Aufgabenanalyse}
     \include{chapters/2-Verfahrensbeschreibung}
     \include{chapters/3-Programmbeschreibung}
+%    \addtocontents{toc}{\protect\newpage}
     \include{chapters/4-Testdokumentation}
     \include{chapters/5-ZusammenfassungUndAusblick}
-    \addtocontents{toc}{\protect\newpage}
     % ============= Buchstabenteil ==============
     \renewcommand{\thechapter}{\Alph{chapter}}%
     \setcounter{chapter}{0}
@@ -43,6 +58,4 @@
     \include{chapters/D-VerwendeteHilfsmittel}
     \include{chapters/E-Erklaerung}
     \include{chapters/F-Aufgabenstellung}
-    \include{chapters/G-Quellcode}
-    \include{chapters/H-In-Out-Put-Testdokumentation}
 \end{document}

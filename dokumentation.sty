@@ -1,5 +1,7 @@
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesPackage{dokumentation}[08/01/2022, v1.0]
+\ProvidesPackage{dokumentation}[\dateDocument, v1.0]
+
+
 
 % Kodierung
 \usepackage[utf8]{inputenc}
@@ -15,6 +17,8 @@
 
 %Farbe
 %\PassOptionsToPackage{table}{xcolor}
+\usepackage{color}
+
 
 \usepackage{tabularx}
 
@@ -62,7 +66,7 @@
 \ohead{\headmark} % running header auf äußerer Seite
 \ofoot*{\pagemark} % Seitenzahl auf äußerer Fußzeile; durch * auch für pagestyle plain
 
-% SI-Einheiten
+\definecolor{refs}{HTML}{00008F}
 
 % Erzeugung PDF-Dokument und Hyperlinks
 \PassOptionsToPackage{hyphens}{url}
@@ -71,7 +75,9 @@
     pdfauthor={\authorDocument},
     pdfsubject={\subjectDocument},
     pdflang={de-DE},
-    hidelinks, % Links nicht einrahmen
+    colorlinks=true,
+    linkcolor=refs,
+%    hidelinks, % Links nicht einrahmen
     breaklinks=true,
 % TODO: die restlichen Konfigurationen sind persönlicher Geschmack und abhängig vom Dokumentlayout (einseitig vs. zweiseitig etc.)
     pdfdisplaydoctitle, % Titel statt Dokumentname in Titelleiste
@@ -92,7 +98,6 @@
 \renewcommand{\autodot}{} % Entfernt Punkte hinter Nummerierung (Tabelle, Überschrift)
 %\hypersetup{breaklinks=true}
 \usepackage{pdfpages}
-\usepackage{color}
 \usepackage{listings}
 
 \definecolor{background}{HTML}{dbdbdb}
