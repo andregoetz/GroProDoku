@@ -2,19 +2,47 @@
 
 
 \section{Interpretation der Aufgabe}\label{sec:interpretation-der-aufgabe}
-Gefordert ist ein Programm, welches TODO\\ %TODO
+Gefordert ist ein Programm, welches einen Autokorrelator umsetzt.
+Ein Autokorrelator ist ein Objekt, welches in diesem Fall ein Signal mit sich selbst zu einem späteren Zeitpunkt vergleicht.
+Diese Untersuchung auf Selbstähnlichkeit führt zu einer Rauschminimierung des Signals.\\
 
-Als Datenstruktur wird .\\%%TODO
-Bevorzugt wird float, da 32-Bit mehr als ausreichend für Rechenoperationen mit Zahlen von bis zu 6.1.
-Zudem kann durch Hardwarebeschleunigung, oder auch ohne, eine kürzere Laufzeit erreicht werden, im Gegensatz zu Double-Operationen.\\ %TODO
+Die Umsetzung erfolgt auf Basis von Simulationsdaten, welche per~.txt-Dateien bereitgestellt werden.
+Jede Datei beinhaltet die Messdaten eines Signals.
+Die einzelnen Zeilen beinhalten die Intensität des Signals und die dazugehörige Position des Spiegels, welcher im optischen Autokorrelator physisch bewegt wird.\\
+Beginnt eine Zeile mit einem \enquote{\#} soll sie ignoriert werden.
+Einzelne Werte einer Zeile werden mit einem Tabulator getrennt.\\
+Dem Programm sollen mehrere Messdaten bereitgestellt werden können, da es im späteren Einsatz permanent Daten erhält.
+Das Einlesen einer Datei soll als Thread geschehen.
+Jede Datei wird der verarbeitenden Instanz für 0.05s zur Verfügung gestellt.
+Die Verarbeitung einer Messreihe wird ebenfalls in einem Thread realisiert.
+Sie erfolgt über eine mathematische Aufbereitung der Daten.
+Dabei werden die Positionswerte des Spiegels in Picosekunden transformiert.
+Die Intensität des Signals soll normiert werden, indem jeder Wert durch den höchsten Wert, also das Maximum aller Werte dividiert wird.\\
+Darauf folgt eine Glättung der Daten, indem die transformierten Positionsdaten, also die Picosekunden, über den gleitenden Mittelwert eines Mittelungsfensters von $0.2\%$ der Gesamtdatenmenge berechnet, beziehungsweise verändert werden.\\
+Für die Randwerte, um welche keine Mittelungsfenster erzeugt werden können, wird jeweils der letztmögliche Wert sooft dupliziert, wie es nötig ist, um das Fenster zu erzeugen.
+Es wird also künstlich eine Konstante hinzugefügt.\\
 
-Die Eingabedatei wird zeilenweise eingelesen.
-Beginnt eine Zeile mit einem Semicolon, wird diese als Kommentar beziehungsweise als Beschreibung interpretiert.
+
+Im nächsten Schritt der Aufbereitung soll die sogenannte \enquote{Obere Einhüllende} approximiert werden, indem von links annähernd bis zum globalen Maximum der Messreihe, jedem Positionswert $x_k$ der bisher höchste Messwert zugeordnet wird.
+Das gleiche Verfahren wird dann von rechts wiederholt.\\
+Mit dieser Einhüllenden kann anschließend die Pulsbreite berechnet werden.
+Hierfür wird zuerst die Grundlinie berechnet, welche die Höhe im Mittel der ersten $0.01 * N$ Messwerte ist, wobei $N$ die Anzahl aller Elemente ist.
+Die Pulsbreite ist dann die Distanz der Punkte, an dem die Einhüllende die halbe Höhe zwischen der Grundlinie und ihrem Maximum beträgt.\\
+
+Im Anschluss an die Berechnung wird die Ausgabedatei erzeugt.
+Das Erzeugen geschieht ebenfalls in einem Thread, welcher von der verarbeitenden Instanz angewiesen werden soll.
+Die Ausgabedatei beginnt mit einer Kommentarzeile, welche die Pulsbreite und Indizes der äußeren Punkte der Pulsbreite kommasepariert enthält.
+Darauf folge n in jeder Zeile die transformierten Positionen, die normierte Intensität des Signals und den Funktionswert der oberen Einhüllenden an der Stelle, wieder mit Tabulator getrennt.
+Es können beliebig viele Kommentarzeilen auftreten, die erste Zeile muss allerdings die Kommentarzeile mit der Pulsbreite sein.
+Der Name der Ausgabedatei soll mit \enquote{out} beginnen und im Anschluss den Dateinamen enthalten.
+Ebenfalls ist die Ausgabedatei eine~.txt-Datei.\\
+Das Programm ist beendet, wenn jede Eingabedatei verarbeitet und eine Ausgabedatei dazu erstellt wurde.
+
 \begin{figure}[h]
     \centering
     \caption{Input-Restriktionen}
     \begin{itemize}[noitemsep]
-        \item Restriktion 1.
+        \item Es dürfen nur positive, ganzzahlige Werte
     \end{itemize}
     \label{fig:input-restrictions}
 \end{figure}
@@ -44,4 +72,5 @@ So kann zum Beispiel ein syntaktischer Fehler provoziert werden, indem TODO%TODO
 \subsection{Syntaktische Fehler}\label{subsec:syntaktische-fehler-behandlung}
 
 \subsection{Semantische Fehler}\label{subsec:semantische-fehler-behandlung}
+
 \subsection{Sonderfälle}\label{subsec:sonderfaelle}
