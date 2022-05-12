@@ -18,10 +18,10 @@ Die Verarbeitung einer Messreihe wird ebenfalls in einem Thread realisiert.
 Sie erfolgt über eine mathematische Aufbereitung der Daten.
 Dabei werden die Positionswerte des Spiegels in Picosekunden transformiert.
 Die Intensität des Signals soll normiert werden, indem jeder Wert durch den höchsten Wert, also das Maximum aller Werte dividiert wird.\\
+
 Darauf folgt eine Glättung der Daten, indem die transformierten Positionsdaten, also die Picosekunden, über den gleitenden Mittelwert eines Mittelungsfensters von $0.2\%$ der Gesamtdatenmenge berechnet, beziehungsweise verändert werden.\\
 Für die Randwerte, um welche keine Mittelungsfenster erzeugt werden können, wird jeweils der letztmögliche Wert sooft dupliziert, wie es nötig ist, um das Fenster zu erzeugen.
-Es wird also künstlich eine Konstante hinzugefügt.\\
-
+Es werden also künstlich Werte hinzugefügt.\\
 
 Im nächsten Schritt der Aufbereitung soll die sogenannte \enquote{Obere Einhüllende} approximiert werden, indem von links annähernd bis zum globalen Maximum der Messreihe, jedem Positionswert $x_k$ der bisher höchste Messwert zugeordnet wird.
 Das gleiche Verfahren wird dann von rechts wiederholt.\\
@@ -32,23 +32,22 @@ Die Pulsbreite ist dann die Distanz der Punkte, an dem die Einhüllende die halb
 Im Anschluss an die Berechnung wird die Ausgabedatei erzeugt.
 Das Erzeugen geschieht ebenfalls in einem Thread, welcher von der verarbeitenden Instanz angewiesen werden soll.
 Die Ausgabedatei beginnt mit einer Kommentarzeile, welche die Pulsbreite und Indizes der äußeren Punkte der Pulsbreite kommasepariert enthält.
-Darauf folge n in jeder Zeile die transformierten Positionen, die normierte Intensität des Signals und den Funktionswert der oberen Einhüllenden an der Stelle, wieder mit Tabulator getrennt.
+Darauf folgen in jeder Zeile die transformierte Position, die normierte Intensität des Signals und der Funktionswert der oberen Einhüllenden an der Stelle, ebenfalls mit Tabulator getrennt.
 Es können beliebig viele Kommentarzeilen auftreten, die erste Zeile muss allerdings die Kommentarzeile mit der Pulsbreite sein.
 Der Name der Ausgabedatei soll mit \enquote{out} beginnen und im Anschluss den Dateinamen enthalten.
-Ebenfalls ist die Ausgabedatei eine~.txt-Datei.\\
-Das Programm ist beendet, wenn jede Eingabedatei verarbeitet und eine Ausgabedatei dazu erstellt wurde.
+Das Dateiformat ist~.txt\\
+Das Programm ist beendet, wenn jede Eingabedatei verarbeitet und jeweils eine Ausgabedatei dazu erstellt wurde.
 
 \begin{figure}[h]
     \centering
     \caption{Input-Restriktionen}
     \begin{itemize}[noitemsep]
-        \item Es dürfen nur positive, ganzzahlige Werte
+        \item Jede Zeile muss genau 2 Werte enthalten
+        \item Es dürfen nur positive, ganzzahlige Werte enthalten sein
+        \item Es müssen mindestens 500 Zeilen enthalten sein
     \end{itemize}
     \label{fig:input-restrictions}
 \end{figure}
-
-Die Lösung des Problems wird mittels TODO realisiert. %TODO
-TODO Beschreibe Algorithmus %TODO
 
 
 \section{Fehlerarten}\label{sec:fehlerarten}
@@ -56,21 +55,26 @@ Die Eingabedatei kann verschiedene Integritätsbedingungen verletzen.
 Das Programm muss diese Fehlerarten identifizieren und den Nutzer darüber informieren.
 
 \subsection{Technische Fehler}\label{subsec:technische-fehler}
-%TODO
+Technische Fehler entstehen, wenn dem Programm ein nicht existierender oder leerer Ordner übergeben wird.
 
 \subsection{Syntaktische Fehler}\label{subsec:syntaktische-fehler}
 Die Eingabedatei muss der Struktur aus~\nameref{fig:input-restrictions} entsprechen.
-So kann zum Beispiel ein syntaktischer Fehler provoziert werden, indem TODO%TODO
+So kann zum Beispiel ein syntaktischer Fehler provoziert werden, indem statt Zahlen Zeichen in der Zeile stehen.
 
 \subsection{Semantische Fehler}\label{subsec:semantische-fehler}
+Enthält die Eingabedatei Zahlen, welche größer als $2^{31} -1$ sind, kann dies zu Problemen führen, da die eingegebenen Werte in einem Integer der Größe 32 Bit gespeichert werden.
 
 
 \section{Fehlerbehandlung}\label{sec:fehlerbehandlung}
 
 \subsection{Technische Fehler}\label{subsec:technische-fehler-behandlung}
+Ist ein technischer Fehler vorhanden, wird eine Ausnahme geworfen und das Programm beendet.
 
 \subsection{Syntaktische Fehler}\label{subsec:syntaktische-fehler-behandlung}
+Wurde ein syntaktischer Fehler identifiziert, wird auch eine Ausnahme geworfen und die nächste Datei wird eingelesen.
 
 \subsection{Semantische Fehler}\label{subsec:semantische-fehler-behandlung}
+Bei semantischen Fehlern soll ebenfalls versucht werden, die nächste Datei einzulesen.
+Es wird auch eine Ausnahme geworfen.
 
-\subsection{Sonderfälle}\label{subsec:sonderfaelle}
+%\subsection{Sonderfälle}\label{subsec:sonderfaelle}

@@ -2,9 +2,45 @@
 
 
 \section{Gesamtsystem}\label{sec:gesamtsystem}
-Es wurde eine Mischung aus EVA und MVC genutzt. %TODO
+Das System arbeitet nach dem \textbf{EVA}-Prinzip.
+Die einzelnen Komponenten laufen jeweils in Threads.
+Die \textbf{EVA}-Segmente werden von einem Controller koordiniert, welcher gleichzeitig auch der Einstiegspunkt des Programms ist.
+Zu Beginn des Programms nimmt der Controller per Argument einen Ordnerpfad entgegen.
+Anschließend startet er die einzelnen Komponenten als Threads.
 
 \subsection{Eingabe}\label{subsec:eingabe}
+Sobald er gestartet wurde, liest der Eingabethread permanent Dateien aus dem übergebenen Ordner ein.
+Er selbst führt eine Queue, welche alle bereits eingelesenen Dateien enthält.
+Alle 0.05s wird von einem weiteren Thread, dessen einzige Aufgabe es ist, eine Methode aufzurufen ein, nach außen sichtbares, Model ersetzt.
+Dadurch wird der gewünschte Effekt simuliert, dass der Detektor mit 20Hz immer eine andere Messreihe zur Verfügung stellt.
+Der Controller schaut permanent, ob es ein sichtbares Objekt gibt und gibt dieses an die Verarbeitung weiter, falls sich das sichtbare Objekt geändert hat.
+
 \subsection{Verarbeitung}\label{subsec:verarbeitung}
+Die Verarbeitungskomponente führt ebenfalls eine Queue, welche von außen befüllt werden kann.
+Gibt es ein neues Objekt zum Verarbeiten in der Queue, schaut sie, ob zu diesem Objekt bereits eine Ausgabe existiert.
+Ist das nicht der Fall, wird der~\nameref{sec:mathematische-methoden}-Prozess gestartet.
+Nach erfolgreicher Berechnung wird das Objekt an die Ausgabeinstanz weitergegeben.
+
 \subsection{Ausgabe}\label{subsec:ausgabe}
-\subsection{Datenstrukturen}\label{subsec:datenstrukt}
+Die Queue der Ausgabeinstanz wird von der Verarbeitung befüllt.
+Gibt es ein neues Objekt und wurde dieses bisher noch nicht als Datei veröffentlicht, startet sie den Ausgabeprozess.
+Hierbei wird das berechnete Modell in einer vorgegebenen Struktur in eine~.txt-Datei geschrieben.
+
+
+\section{Strukturen}\label{subsec:strukturen}
+Sowohl die Eingabe als auch die Ausgabe implementieren jeweils ein Interface, welches Runnable erweitert.
+Durch das Interface sind implementierende Klassen gezwungen sowohl die Funktion einer Ein-/Ausgabe als auch die eines Runnables zur Verfügung zu stellen.
+Runnables sind Objekte, die in einem Thread gestartet werden können.
+Dies ermöglicht eine einfache Austauschbarkeit der Komponenten, welche im Controller initialisiert werden.
+
+\subsection{Datenstruktur}\label{subsec:datenstruktur}
+Eingelesene Dateien werden in einem Datensatz in einer Liste von Datenpunkten vom Typ Integer gespeichert.
+Ein Datenpunkt ist ein generisches Objekt, welches drei Attribute hält.
+Diese 3 Attribute sind vom selben Typ, welcher beim Erstellen eines Objekts festgelegt wird.
+Im Datenpunkt werden die Position des Spiegels und die Intensität gespeichert.
+Nach der Verarbeitung eines Datensatzes enthält dieser eine weitere Liste an Datenpunkten vom Typ Double.
+Diese Datenpunkte haben als drittes Attribut zusätzlich den Wert der oberen Einhüllenden befüllt.
+Im Datensatz werden außerdem Dateiname, Pulsbreite und das Maximum der Intensität gespeichert.\\
+Siehe auch:
+\protect\newpage
+\section{Mathematische Methoden}\label{sec:mathematische-methoden}
