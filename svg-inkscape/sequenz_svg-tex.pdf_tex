@@ -38,7 +38,7 @@
   \newcommand*\fsize{\dimexpr\f@size pt\relax}%
   \newcommand*\lineheight[1]{\fontsize{\fsize}{#1\fsize}\selectfont}%
   \ifx\svgwidth\undefined%
-    \setlength{\unitlength}{396bp}%
+    \setlength{\unitlength}{646.5bp}%
     \ifx\svgscale\undefined%
       \relax%
     \else%
@@ -50,39 +50,56 @@
   \global\let\svgwidth\undefined%
   \global\let\svgscale\undefined%
   \makeatother%
-  \begin{picture}(1,1.39772727)%
+  \begin{picture}(1,1.19257541)%
     \lineheight{1}%
     \setlength\tabcolsep{0pt}%
     \put(0,0){\includegraphics[width=\unitlength,page=1]{sequenz_svg-tex.pdf}}%
-    \put(0.18371212,1.17613636){\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}\textbf{loop}\end{tabular}}}}%
+    \put(0.112529,1.05684455){\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}\textbf{loop}\end{tabular}}}}%
     \put(0,0){\includegraphics[width=\unitlength,page=2]{sequenz_svg-tex.pdf}}%
-    \put(0.18371212,1.08712121){\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}\textbf{opt}\end{tabular}}}}%
+    \put(0.112529,1.00232019){\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}\textbf{opt}\end{tabular}}}}%
     \put(0,0){\includegraphics[width=\unitlength,page=3]{sequenz_svg-tex.pdf}}%
-    \put(0.18371212,0.89772727){\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}\textbf{opt}\end{tabular}}}}%
+    \put(0.112529,0.8863109){\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}\textbf{opt}\end{tabular}}}}%
     \put(0,0){\includegraphics[width=\unitlength,page=4]{sequenz_svg-tex.pdf}}%
-    \put(0.24621212,1.1344697){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}[running]\end{tabular}}}}%
+    \put(0.112529,0.44547564){\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}\textbf{opt}\end{tabular}}}}%
     \put(0,0){\includegraphics[width=\unitlength,page=5]{sequenz_svg-tex.pdf}}%
-    \put(0.24621212,1.04545455){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}[dataQueue.size() != 0]\end{tabular}}}}%
+    \put(0.112529,0.17865429){\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}\textbf{opt}\end{tabular}}}}%
     \put(0,0){\includegraphics[width=\unitlength,page=6]{sequenz_svg-tex.pdf}}%
-    \put(0.24621212,0.85606061){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}[currentOut.isNotProcessedYet(d)]\end{tabular}}}}%
-    \put(0.75568182,1.37121212){\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}currentOut : Ausgabe\end{tabular}}}}%
-    \put(0.46022727,1.37121212){\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}dataQueue : Queue\end{tabular}}}}%
-    \put(0.21401515,1.37121212){\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}: Verarbeitung\end{tabular}}}}%
+    \put(0.15081206,0.15313225){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}[shouldStartThreads]\end{tabular}}}}%
     \put(0,0){\includegraphics[width=\unitlength,page=7]{sequenz_svg-tex.pdf}}%
-    \put(0.13257576,0.07007576){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}1.7:\end{tabular}}}}%
+    \put(0.15081206,1.03132251){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}[running]\end{tabular}}}}%
     \put(0,0){\includegraphics[width=\unitlength,page=8]{sequenz_svg-tex.pdf}}%
-    \put(0.35606061,0.29166667){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}1.6: addDataToPrint(d : Messdaten = d) : void\end{tabular}}}}%
+    \put(0.15081206,0.97679814){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}[dataQueue.size() != 0]\end{tabular}}}}%
     \put(0,0){\includegraphics[width=\unitlength,page=9]{sequenz_svg-tex.pdf}}%
-    \put(0.35416667,0.38636364){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}1.5: fwhm(d : Messdaten = d) : void\end{tabular}}}}%
+    \put(0.15081206,0.86078886){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}[currentOut.isNotProcessedYet(d)]\end{tabular}}}}%
     \put(0,0){\includegraphics[width=\unitlength,page=10]{sequenz_svg-tex.pdf}}%
-    \put(0.35606061,0.51893939){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}1.4: upperValues(d : Messdaten = d) : void\end{tabular}}}}%
+    \put(0.15081206,0.4199536){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}[shouldStartThreads]\end{tabular}}}}%
+    \put(0.83178654,1.17633411){\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}outGroup : ThreadGroup\end{tabular}}}}%
+    \put(0.65313225,0.39675174){\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}outThread : Thread\end{tabular}}}}%
+    \put(0.46287703,1.17633411){\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}currentOut : Ausgabe\end{tabular}}}}%
+    \put(0.28190255,1.17633411){\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}dataQueue : Queue\end{tabular}}}}%
+    \put(0.13109049,1.17633411){\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}: Verarbeitung\end{tabular}}}}%
     \put(0,0){\includegraphics[width=\unitlength,page=11]{sequenz_svg-tex.pdf}}%
-    \put(0.35416667,0.65151515){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}1.3: evenOut(d : Messdaten = d) : void\end{tabular}}}}%
+    \put(0.07772622,0.04292343){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}1.10:\end{tabular}}}}%
     \put(0,0){\includegraphics[width=\unitlength,page=12]{sequenz_svg-tex.pdf}}%
-    \put(0.35606061,0.78409091){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}1.2: transform(d : Messdaten = d) : void\end{tabular}}}}%
+    \put(0.49535963,0.13225058){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}1.9: interrupt()\end{tabular}}}}%
     \put(0,0){\includegraphics[width=\unitlength,page=13]{sequenz_svg-tex.pdf}}%
-    \put(0.37310606,1.01136364){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}1.1: poll()\end{tabular}}}}%
+    \put(0.40951276,0.34106729){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}1.8: start()\end{tabular}}}}%
     \put(0,0){\includegraphics[width=\unitlength,page=14]{sequenz_svg-tex.pdf}}%
-    \put(0.09090909,1.29545455){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}1: run() : void\end{tabular}}}}%
+    \put(0.39791183,0.39907193){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}1.7:\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=15]{sequenz_svg-tex.pdf}}%
+    \put(0.21809745,0.51508121){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}1.6: addDataToPrint(d : Messdaten = d) : void\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=16]{sequenz_svg-tex.pdf}}%
+    \put(0.21693735,0.57308585){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}1.5: fwhm(d : Messdaten = d) : void\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=17]{sequenz_svg-tex.pdf}}%
+    \put(0.21809745,0.65429234){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}1.4: upperValues(d : Messdaten = d) : void\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=18]{sequenz_svg-tex.pdf}}%
+    \put(0.21693735,0.73549884){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}1.3: evenOut(d : Messdaten = d) : void\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=19]{sequenz_svg-tex.pdf}}%
+    \put(0.21693735,0.81670534){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}1.2: transform(d : Messdaten = d) : void\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=20]{sequenz_svg-tex.pdf}}%
+    \put(0.22853828,0.95591647){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}1.1: poll()\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=21]{sequenz_svg-tex.pdf}}%
+    \put(0.05568445,1.12993039){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}1: run() : void\end{tabular}}}}%
+    \put(0,1.18097448){\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}Visual Paradigm Professional(Leonhard(FH Aachen))\end{tabular}}}}%
   \end{picture}%
 \endgroup%

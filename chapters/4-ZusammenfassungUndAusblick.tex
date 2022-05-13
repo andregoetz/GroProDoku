@@ -2,6 +2,28 @@
 
 
 \section{Zusammenfassung}\label{sec:zusammenfassung}
+Es wurde ein System angefertigt, welches den algorithmischen Kern zur Bestimmung der Autokorrelationsfunktion, für die Auswertung eines Signals, umsetzt.
+Die einzelnen Komponenten, bestehend aus einer Eingabesimulation, einer Verarbeitung und der Dateiausgabe, wurden nebenläufig realisiert, wodurch diese unabhängig voneinander arbeiten können.
+Außerdem wurde darauf geachtet, dass die Komponenten einfach auszutauschen sind und gegebenenfalls skaliert werden können.
+Es wurde eine sinnvolle, zweite Ausgabetechnik bereits implementiert, welche die Idee eines eventbasierten Systems skizziert.\\
+
+Dieses Dokument beschreibt zunächst die Anforderungen an das Programm und präzisiert die Aufgabenstellung.
+Danach folgen das Verfahren des Gesamtsystems sowie die mathematischen Modelle.
+Weitergehend bietet es eine Vielzahl an Diagrammen, um dem Interessenten einzelne Abläufe im Programm zu veranschaulichen.
+
 
 \section{Ausblick}\label{sec:ausblick}
+Für die Zukunft, könnte das Programm stärker eventbasiert arbeiten.
+Zudem kann, wie auch bei der Ausgabe bereits skizziert, die Verarbeitung skaliert werden.
+Insbesondere wenn größere Dateien verarbeitet werden sollen, wird die Berechnungszeit eines Datensatzes enorm ansteigen.
+Dies wird dazu führen, dass eingelesene Daten wieder verworfen werden, da die Queue der Verarbeitungsinstanz voll ist.
+Durch Anpassen des QUEUE\_LIMITs von aktuell 100 Datensätzen, kann dies zwar hinausgezögert werden, aber anstatt dauerhaft in einer while-Schleife zu überprüfen, ob ein Objekt zum Verarbeiten existiert, kann hier auch stattdessen pro Berechnung ein Thread initialisiert werden.
+Es würde allerdings schon ausreichen mehrere Berechnungs-Threads gleichzeitig laufen zu haben um auf diese aufzuteilen.
+Das Programm bedarf weitergehend einer stärkeren Testung.
+Für Tests sind weitere simulierte Daten notwendig um besonders Grenzfälle provozieren zu können und das Verhalten des Programms dahingehend zu testen.
+
+Außerdem ist die Ausgabe in eine~.txt-Datei für eine realistische Nutzung unwirksam.
+Wenn man bedenkt, dass alle 0.05s eine Messreihe zur Verfügung gestellt wird, würden nach 10s Laufzeit bereits 200 Dateien existieren.
+Hier wäre eine Ausgabe in Form eines Feeds beziehungsweise Streams denkbar, welche auf Abruf aktuelle Daten liefert.
+
 

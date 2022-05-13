@@ -35,7 +35,7 @@ Die Ausgabedatei beginnt mit einer Kommentarzeile, welche die Pulsbreite und Ind
 Darauf folgen in jeder Zeile die transformierte Position, die normierte Intensität des Signals und der Funktionswert der oberen Einhüllenden an der Stelle, ebenfalls mit Tabulator getrennt.
 Es können beliebig viele Kommentarzeilen auftreten, die erste Zeile muss allerdings die Kommentarzeile mit der Pulsbreite sein.
 Der Name der Ausgabedatei soll mit \enquote{out} beginnen und im Anschluss den Dateinamen enthalten.
-Das Dateiformat ist~.txt\\
+Das Dateiformat ist~.txt.\\
 Das Programm ist beendet, wenn jede Eingabedatei verarbeitet und jeweils eine Ausgabedatei dazu erstellt wurde.
 
 \begin{figure}[h]
@@ -43,6 +43,7 @@ Das Programm ist beendet, wenn jede Eingabedatei verarbeitet und jeweils eine Au
     \caption{Input-Restriktionen}
     \begin{itemize}[noitemsep]
         \item Jede Zeile muss genau 2 Werte enthalten
+        \item Es dürfen beliebig viele Kommentarzeilen existieren
         \item Es dürfen nur positive, ganzzahlige Werte enthalten sein
         \item Es müssen mindestens 500 Zeilen enthalten sein
     \end{itemize}

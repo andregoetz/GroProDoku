@@ -1,4 +1,10 @@
 \chapter{Abweichung und Ergänzung}\label{ch:abweichung-und-ergaenzung}
--Thread -> Runnable
--Klassendiagramm
--Immer neuer Thread -> 3 (4) Threads insgesamt
+
+Im Zuge der Konzeption wurden Entscheidungen getroffen, von welchen die tatsächliche Umsetzung abweicht, um eine bessere Laufzeit oder auch Funktion zu gewährleisten.
+Dazu zählt vor allem die Gesamtzahl der Threads der einzelnen EVA-Komponenten.
+Die Überlegung, dass es mehrere Einlese-Threads und Verarbeitungs-Threads gibt, basierte auf der Annahme, dass das Einlesen der Dateien deutlich länger brauchen würde, sodass eine Bereitstellung von 20Hz nicht erfolgen könnte.
+Dazu sei allerdings gesagt, dass es für spätere Zwecke im~\nameref{sec:ausblick} geplant ist, dies zu implementieren, wie bereits für die Ausgabe geschehen.\\
+Weitere Änderungen befinden sich im Klassendiagramm.
+So wurde beispielsweise die Klasse \enquote{Pulsbreite} zu einem Record verändert, die Klasse \enquote{Datenpunkt} hinzugefügt und Felder des Models \enquote{Messdaten} von Maps zu Listen an Datenpunkten verändert.
+Es wurden außerdem einige Methoden zu den Klassen hinzugefügt, um eine bessere Übersicht des Codes zu gewährleisten.
+

@@ -16,15 +16,18 @@ Nach dem Entpacken kann das Programm über den Befehl
 \begin{center}
     \colorbox{gray!20}{
         \begin{minipage}{0.9\textwidth}
-            java -jar GroPro-1.0.jar "Testbeispiele/Test1IHK.txt"
+            java -jar GroPro-1.0.jar \grqq Testbeispiel\grqq~\grqq true\grqq
         \end{minipage}
     }
 \end{center}
 in der Eingabeaufforderung (CMD) oder beliebiger Bash ausgeführt werden.
+Das erste Argument ist der Ordner, indem sich die~.txt-Dateien befinden.
+Das zweite Argument ist ein boolean, über welchen die Ausgabevariante festgelegt werden kann.
+Es ist optional und falls es true ist, wird die einmalige Ausgabe (siehe \nameref{subsec:ausgabe}) benutzt.
 \section{Testen der Beispiele}\label{sec:testen-der-beispiele}
-Das Ausführen der automatischen Tests erfolgt über die Datei \enquote{RunTestBeispiele.cmd}.
-In der Konsole wird nun das Programm für jede Datei im Ordner \enquote{Testbeispiele} ausgeführt.
-Alle Dateiausgaben befinden sich im Anschluss im Ordner \enquote{Testbeispiele/out}.
+Das Ausführen der JAR erfolgt über die Datei \enquote{RunJar.cmd}.
+In der Konsole wird nun das Programm für den Ordner \enquote{Testbeispiel} ausgeführt.
+Alle Ausgaben befinden sich im Anschluss im Ordner \enquote{Testbeispiel/out}.
 
 \section{Kompilieren}\label{sec:kompilieren}
 Zum Erzeugen der~.jar-Datei sollte Maven genutzt werden.
@@ -39,3 +42,14 @@ Anschließend lässt sich das Programm kompilieren, indem der Befehl
 \end{center}
 im Root-Verzeichnis des Quellcodes (das ist der Ordner, indem sich die \enquote{pom.xml} befindet) ausgeführt wird.
 Eine JAR-Datei befindet sich dann im Ordner \enquote{target}.
+
+\section{Visualisierung}\label{sec:visualisierung}
+Das mitgelieferte Python-Programm \enquote{FileViewer.py} ist bereits so konfiguriert, dass es beim Ausführen über
+\begin{center}
+    \colorbox{gray!20}{
+        \begin{minipage}{0.9\textwidth}
+            python FileViewer.py
+        \end{minipage}
+    }
+\end{center}
+die Ausgabedateien mithilfe von matplot visualisiert.

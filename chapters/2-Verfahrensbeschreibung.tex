@@ -22,9 +22,16 @@ Ist das nicht der Fall, wird der~\nameref{sec:mathematische-methoden}-Prozess ge
 Nach erfolgreicher Berechnung wird das Objekt an die Ausgabeinstanz weitergegeben.
 
 \subsection{Ausgabe}\label{subsec:ausgabe}
-Die Queue der Ausgabeinstanz wird von der Verarbeitung befüllt.
-Gibt es ein neues Objekt und wurde dieses bisher noch nicht als Datei veröffentlicht, startet sie den Ausgabeprozess.
-Hierbei wird das berechnete Modell in einer vorgegebenen Struktur in eine~.txt-Datei geschrieben.
+Es gibt zwei Ausgabevarianten.
+Die eine Ausgabevariante beruht auf der Idee, dass für jeden Schritt (Eingabe, Verarbeitung, Ausgabe) ein einzelner Thread existiert.
+Die verarbeitende Instanz befüllt dabei eine Queue des Ausgabethreads, welche von der Ausgabe dann abgearbeitet wird.\\
+
+Die andere Variante ist die, dass die Verarbeitung für jede Messreihe einen einzigen Thread startet.
+Dieser ist nach Vollendung seiner Aufgabe, sei es das Schreiben der Datei oder das Ignorieren der Datei, da diese bereits ausgegeben wurde, fertig und läuft nicht in Endlosschleife weiter.\\
+Der Vorteil ist zum einen, dass hierfür keine Queue befüllt wird, wodurch Speicherplatz (besonders im Heap) gespart wird und zum anderen die Ausgabe wesentlich schneller verläuft.
+Die Ausgabe ist der Teil des Programms, welcher am längsten dauert, wodurch bei dieser Form der Ausgabe der sogenannte \enquote{Bottleneck}-Effekt deutlich verringert wird.
+Wurde dieses bisher noch nicht als Datei veröffentlicht, startet dieser Thread den Ausgabeprozess.\\
+Bei beiden Varianten wird das berechnete Modell in der vorgegebenen Struktur aus~\autoref{sec:interpretation-der-aufgabe}~in eine~.txt-Datei geschrieben.
 
 
 \section{Strukturen}\label{subsec:strukturen}
@@ -41,9 +48,9 @@ Im Datenpunkt werden die Position des Spiegels und die Intensität gespeichert.
 Nach der Verarbeitung eines Datensatzes enthält dieser eine weitere Liste an Datenpunkten vom Typ Double.
 Diese Datenpunkte haben als drittes Attribut zusätzlich den Wert der oberen Einhüllenden befüllt.
 Im Datensatz werden außerdem Dateiname, Pulsbreite und das Maximum der Intensität gespeichert.\\
-Siehe auch:
-\protect\newpage
+Siehe auch~\nameref{sec:klassendiagramm}.
 
+\protect\pagebreak
 
 \section{Mathematische Methoden}\label{sec:mathematische-methoden}
 Nachfolgend werden die in~\nameref{sec:interpretation-der-aufgabe} genannten mathematischen Methoden genauer erläutert, die für den Algorithmus zum Einsatz kommen.
@@ -132,3 +139,11 @@ Wird das gleiche Verfahren dann von rechts beginnend wiederholt, kann der Index 
 Die Pulsbreite ist dann $x_{k_r} - x_{k_l}$.
 Für die Ausgabe werden die Indizes $k_l \text{ und } k_r$ im Datenmodell gespeichert.
 
+\begin{figure}[h]
+    \centering
+    \includegraphics{outFigur}
+    \caption{Plot eines ausgegebenen Datensatzes nach seiner Berechnung.
+    Der orangene Graph ist die obere Einhüllende, die grüne Gerade die Pulsbreite.
+    Durch die Approximation der oberen Einhüllenden, ist diese leicht verzerrt.}
+    \label{fig:outplot}
+\end{figure}
